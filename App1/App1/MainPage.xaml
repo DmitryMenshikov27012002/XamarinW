@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.MainPage"
+             xmlns:app="clr-namespace:App1">
+    <ContentPage.BindingContext>
+        <app:MainPageViewModel></app:MainPageViewModel>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Hi privet" FontSize="16" Padding="30,0,30,0"/>
+        <StackLayout>
+            <Label>Press F to pay respects</Label>
+            <Button Text="{Binding ButtonText}" Command="{Binding ButtonClicked}"></Button>
+        </StackLayout>
+
+        <StackLayout>
+            <Entry Text="{Binding EntryText}" />
+            <Button Text="Добавить" Command="{Binding AddEntityCommand}"/>
+
+            <ListView ItemsSource="{Binding ItemsCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Id}" />
+                                    <Label Text="{Binding StringField}" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+        
+    </StackLayout>
+
+</ContentPage>
